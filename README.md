@@ -13,6 +13,7 @@ We will be using the following platforms:
 - [Google Colab](https://colab.research.google.com/) (for model training)
 - [Streamlit](https://streamlit.io/) (for web deployment)
 
+If you haven't register an account before, please go ahead and register one.
 ---
 ## Step 1: Dataset Preparation 📂
 We will use a publicly available human face dataset from Roboflow.
