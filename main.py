@@ -60,7 +60,7 @@ elif option == "Live Camera":
   stop = st.button("Stop Camera")
 
   if start:
-    cap = cv2.VideoCapture(0) # Open webcam
+    cap = cv2.VideoCapture(1) # Open webcam
     frame_placeholder = st.empty() # Placeholder for updating frames
     attendance_text= st.empty() # Placeholder for updating attendance count
 
