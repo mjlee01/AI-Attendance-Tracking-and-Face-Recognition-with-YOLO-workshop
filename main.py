@@ -34,9 +34,53 @@ def detect_people(frame):
 
 # Upload Image Option
 if option == "Upload Image":
+  st.subheader("Upload an Image for Attendance Detection")
   uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+
   if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    image = np.array(image)
-    processed_image, num_students = detect_people(image)
-    st.image(processed_image, caption=f"Detected {num_students} students", use_column_width=True)
+    st.image(image, caption="Uploaded Image", use_column_width=True)
+
+    # Convert to numpy array and process
+    image_np = np.array(image)
+    processed_image, count = detect_people(image_np)
+
+    # Show results
+    st.image(processed_image, caption=f"Detected Attendance: {count}", use_column_width=True)
+    st.write(f"### Attendance Count: {count} 🧑🏻‍🎓")
+
+
+# Live Camera Option
+elif option == "Live Camera":
+  st.subheader("Live Attendance Tracking 🎥")
+  st.write("Click 'Start Camera' to begin tracking.")
+
+  # Camera control buttons
+  start = st.button("Start Camera")
+  stop = st.button("Stop Camera")
+
+  if start:
+    cap = cv2.VideoCapture(0) # Open webcam
+    frame_placeholder = st.empty() # Placeholder for updating frames
+    attendance_text= st.empty() # Placeholder for updating attendance count
+
+    while cap.isOpened():
+      ret, frame = cap.read()
+      if not ret:
+        st.error("Error: Could not read frame from camera.")
+        break
+
+      # Process frame
+      processed_frame, num_students = detect_people(frame)
+      processed_frame = cv2.cvtColor(processed_frame, cv2.COLOR_BGR2RGB) # COnvert to RGB for Streamlit
+
+      # Update UI
+      frame_placeholder.image(processed_frame, caption="Live Attendance Tracking", use_column_width=True)
+      attendance_text.write(f"### Attendance Count: {num_students} 🧑🏻‍🎓")
+
+      # Stop the camera when the button is pressed
+      if stop:
+        break
+
+    cap.release()
+    cv2.destroyAllWindows()
