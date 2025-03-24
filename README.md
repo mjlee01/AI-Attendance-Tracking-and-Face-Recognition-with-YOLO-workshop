@@ -19,8 +19,8 @@ If you haven't register an account before, please go ahead and register one.
 We will use a publicly available human face dataset from Roboflow.
 
 ### Dataset Links:
-- [Reference 1](https://app.roboflow.com/logo-bplam/test-dxiix-ckery/browse?queryText=&pageSize=50&startingIndex=0&browseQuery=true)
-- [Reference 2](https://universe.roboflow.com/logo-bplam/test-dxiix-ckery/dataset/1)
+- [Reference 1](https://universe.roboflow.com/logo-bplam/test-dxiix-ckery/dataset/1)
+- [Reference 2](https://app.roboflow.com/logo-bplam/test-dxiix-ckery/browse?queryText=&pageSize=50&startingIndex=0&browseQuery=true)
 
 ### Download Options:
 1. **Using API (Recommended)**:
@@ -33,7 +33,7 @@ We will use a publicly available human face dataset from Roboflow.
 
 ---
 ## Step 2: Train YOLO Model 🏋️‍♂️
-Refer to the following [Google Colab Notebook](https://colab.research.google.com/drive/18_2264gPhFC5G8KX6H3Z8PKNJW04K_M1?usp=sharing) for training.
+Refer to the following [Google Colab Notebook](https://colab.research.google.com/drive/18_2264gPhFC5G8KX6H3Z8PKNJW04K_M1#scrollTo=ZvZYsakQ0G0q) for training.
 
 ### Training Steps:
 1. Copy the Roboflow dataset API key and paste it into your Colab notebook.
